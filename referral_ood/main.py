@@ -97,39 +97,39 @@ def main(args):
 			plt.figure(figsize = (9, 9))
 			plt.suptitle(f'{shift} -- {dataset}\n{obj} -- {mt} -- {ensemble}')
 
-			plot_curve(
+			utils.plot_curve(
 				base[pfm],
 				base[f'{pfm}_stddev'],
 				color = colors['base'])
-			plot_curve(
+			utils.plot_curve(
 				SR[pfm],
 				SR[f'{pfm}_stddev'],
 				color = colors['SR'])
 
 			if dataset == 'in_domain_test':
-				plot_curve(
+				utils.plot_curve(
 					SSR[f'aupcc_{pfm}'][pfm],
 					SSR[f'aupcc_{pfm}'][f'{pfm}_stddev'],
 					color = colors['SSR'])
-				plot_curve(
+				utils.plot_curve(
 					SPS[f'aupcc_{pfm}'][pfm],
 					SPS[f'aupcc_{pfm}'][f'{pfm}_stddev'],
 					color = colors['SPS'])
 
 			elif dataset == 'ood_test':
-				plot_curve(
+				utils.plot_curve(
 					SPS[f'aupcc_{pfm}'][pfm],
 					SPS[f'aupcc_{pfm}'][f'{pfm}_stddev'],
 					color = colors['SPS'], linestyle = '--')
-				plot_curve(
+				utils.plot_curve(
 					SSR[f'aupcc_{pfm}'][pfm],
 					SSR[f'aupcc_{pfm}'][f'{pfm}_stddev'],
 					color = colors['SSR'], linestyle = '--')
-				plot_curve(
+				utils.plot_curve(
 					SPS['mean_match'][pfm],
 					SPS['mean_match'][f'{pfm}_stddev'],
 					color = colors['SPS'])
-				plot_curve(
+				utils.plot_curve(
 					SSR['mean_match'][pfm],
 					SSR['mean_match'][f'{pfm}_stddev'],
 					color = colors['SSR'])
