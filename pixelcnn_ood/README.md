@@ -11,7 +11,7 @@ Barath Mohan Umapathi, Kushal Chauhan, Pradeep Shenoy, Devarajan Sridharan <br>
 #### Environment Setup
 1. Creare a new conda environment `conda create -n pixelcnn_ood python=3.7.10`.
 2. Activate it `conda activate pixelcnn_ood`.
-3. Install the requirements `pip install -r pixelcnn_ood/requirements.txt`.
+3. Install the requirements `python3 -m pip install -r pixelcnn_ood/requirements.txt`.
 
 #### Datasets Preparation
 The SignLang, CompCars, GTSRB, CLEVR, and CelebA datasets need to be downloaded manually. Follow the instructions below:
@@ -23,31 +23,31 @@ The SignLang, CompCars, GTSRB, CLEVR, and CelebA datasets need to be downloaded 
 
 ### Usage
 
-To train a PixelCNN++ on MNIST dataset and perform inference on other grayscale OOD datasets, run
+Train a PixelCNN++ on MNIST dataset and perform inference on other grayscale OOD datasets:
 
 ```
 python3 -m train_pixelcnn.py --train_set mnist --mode grayscale
 ```
 
-To compute "Stirred" LL using PixelCNN++ trained on FashionMNIST, run
+Compute "Stirred" LL using PixelCNN++ trained on FashionMNIST:
 
 ```
 python3 -m stirring_ll.py --train_set fashion_mnist --mode grayscale
 ```
 
-To compute "Shaken" LL using PixelCNN++ trained on CelebA, run
+Compute "Shaken" LL using PixelCNN++ trained on CelebA:
 
 ```
 python3 -m shaking_ll.py --train_set celeb_a --mode color
 ```
 
-To train a background PixelCNN++ on MNIST and compute Log-Likelihood ratio from [Ren et al., 2019](https://arxiv.org/pdf/1906.02845), run
+Train a background PixelCNN++ on MNIST and compute Log-Likelihood ratio from [Ren et al., 2019](https://arxiv.org/pdf/1906.02845):
 
 ```
 python3 -m train_pixelcnn.py --train_set mnist --mode grayscale --bg 1
 ```
 
-To compute Input Complexity OOD score from [Serra et al., 2019](https://arxiv.org/pdf/1909.11480) using PNG compression for LSUN/ID, run
+Compute Input Complexity OOD score from [Serra et al., 2019](https://arxiv.org/pdf/1909.11480) using PNG compression for LSUN/ID:
 
 ```
 python3 -m probs_ic.py --train_set lsun --mode color --compression png
