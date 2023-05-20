@@ -1,0 +1,66 @@
+{
+    "input_shape": {
+        "color": [32, 32, 3],
+        "grayscale": [32, 32, 1]
+    },
+
+    "datsets": {
+        "color": [
+            "svhn_cropped",
+            "cifar10",
+            "celeb_a",
+            "gtsrb",
+            "compcars",
+            "lsun",
+            "noise",
+            "constant"
+        ],
+        "grayscale": [
+            "mnist",
+            "fashion_mnist",
+            "emnist_letters",
+            "sign_lang",
+            "clevr",
+            "noise",
+            "constant"
+        ]
+    },
+
+    "reg_weight": 0,
+
+    "use_weight_norm": true,
+
+    "learning_rate": 1e-3,
+
+    "num_resnet": 2,
+
+    "num_hierarchies": 4,
+
+    "num_logistic_mix": 5,
+
+    "num_filters": {
+        "color": 64, 
+        "grayscale": 32
+        },
+
+    "dropout_p": 0.3,
+
+    "epochs": 100,
+
+    "batch_size": 32,
+
+    "mutation_rate": {
+        "0": {
+            "color": 0, 
+            "grayscale": 0
+            },
+        "1": {
+            "color": 0.1, 
+            "grayscale": 0.1
+            }
+        },
+
+    "test_batch_size": 256,
+
+    "n_patches": 2
+}

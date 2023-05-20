@@ -64,7 +64,7 @@ def compcars_generator(split=b'train'):
     An image
   """
 
-  rootpath = '/home/barath/data/compcars/sv_data'
+  rootpath = '../data/compcars/sv_data'
   random.seed(42)
   # random.seed(43)  # split 2
 
@@ -88,8 +88,18 @@ def compcars_generator(split=b'train'):
       yield plt.imread(os.path.join(rootpath, 'image', image_name))
     
 def clevr_generator(split=b'train'):
+  """Generator function for the CompCars Surveillance dataest.
+
+  Source: https://cs.stanford.edu/people/jcjohns/clevr/
+
+  Args:
+    split: Data split to load - "train", "val" or "test".
+
+  Yields:
+    An image
+  """
     
-  rootpath = '/data/barath/pixelcnn/data/clevr/CLEVR_v1.0/'
+  rootpath = '../data/clevr/CLEVR_v1.0/'
   random.seed(42)
   
   if split in [b'train', b'val']:
@@ -120,7 +130,7 @@ def gtsrb_generator(split=b'train', cropped=False):
     An image
   """
 
-  rootpath = '/home/barath/data/gtsrb/GTSRB'
+  rootpath = '../data/gtsrb/GTSRB'
   random.seed(42)
   # random.seed(43)  # split 2
   if split in [b'train', b'val']:
@@ -165,6 +175,75 @@ def gtsrb_generator(split=b'train', cropped=False):
       yield img
     gt_file.close()
 
+def celeba_generator(split=b'train'):
+  """Generator function for the GTSRB Dataset.
+
+  Source: http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+
+  Args:
+    split: Data split to load - "train", "val" or "test".
+    cropped: Whether to load cropped version of the dataset.
+
+  Yields:
+    An image
+  """
+
+  rootpath = '../data/celeb_a/images/'
+  random.seed(42)
+  all_images = [f for f in os.listdir(rootpath)]
+  
+  if split in [b'train', b'val']:
+      all_images = all_images[:162770]
+      random.shuffle(all_images)
+      if split == b'train':
+          all_images = all_images[:-(len(all_images)//10)]
+      else:
+          all_images = all_images[-(len(all_images)//10):]
+      for image_name in all_images:
+          yield plt.imread(os.path.join(rootpath, image_name))
+
+  elif split == b'test':
+      all_images = all_images[182637:]
+      for image_name in all_images:
+          yield plt.imread(os.path.join(rootpath, image_name))
+
+def sign_lang_generator(split=b'val'):
+
+  """Generator function for the GTSRB Dataset.
+
+  Source: https://www.kaggle.com/datasets/datamunge/sign-language-mnist
+
+  Args:
+    split: Data split to load - "train", "val" or "test".
+    cropped: Whether to load cropped version of the dataset.
+
+  Yields:
+    An image
+  """
+    
+  rootpath = '../data/sign_lang/Hand_sign_mnist/'
+  random.seed(42)
+  
+  if split in [b'train', b'val']:
+      all_images = []
+      for root, dirs, files in os.walk(rootpath + 'Train'):
+            for file in files:
+              all_images.append(os.path.join(root, file))
+      random.shuffle(all_images)
+      if split == b'train':
+          all_images = all_images[:-(len(all_images)//10)]
+      else:
+          all_images = all_images[-(len(all_images)//10):]
+      for image_name in all_images:
+          yield np.expand_dims(plt.imread(os.path.join(image_name)),-1)
+
+  elif split == b'test':
+      all_images = []
+      for root, dirs, files in os.walk(rootpath + 'Test'):
+            for file in files:
+              all_images.append(os.path.join(root, file))
+      for image_name in all_images:
+          yield np.expand_dims(plt.imread(os.path.join(image_name)),-1)
 
 def cifar10_class_generator(split, cls):
   """Generator function of class wise CIFAR10 dataset.
@@ -222,53 +301,6 @@ def mnist_class_generator(split, cls):
     if y == cls:
       yield x
 
-def celeba_generator(split=b'train'):
-
-    rootpath = '/home/barath/data/celeb_a/images'
-    random.seed(42)
-    all_images = [f for f in os.listdir(rootpath)]
-    
-    if split in [b'train', b'val']:
-        all_images = all_images[:162770]
-        random.shuffle(all_images)
-        if split == b'train':
-            all_images = all_images[:-(len(all_images)//10)]
-        else:
-            all_images = all_images[-(len(all_images)//10):]
-        for image_name in all_images:
-            yield plt.imread(os.path.join(rootpath, image_name))
-
-    elif split == b'test':
-        all_images = all_images[182637:]
-        for image_name in all_images:
-            yield plt.imread(os.path.join(rootpath, image_name))
-
-def sign_lang_generator(split=b'val'):
-    
-    rootpath = '/home/barath/data/sign_lang/Hand_sign_mnist/'
-    random.seed(42)
-    
-    if split in [b'train', b'val']:
-        all_images = []
-        for root, dirs, files in os.walk(rootpath + 'Train'):
-             for file in files:
-                all_images.append(os.path.join(root, file))
-        random.shuffle(all_images)
-        if split == b'train':
-            all_images = all_images[:-(len(all_images)//10)]
-        else:
-            all_images = all_images[-(len(all_images)//10):]
-        for image_name in all_images:
-            yield np.expand_dims(plt.imread(os.path.join(image_name)),-1)
-
-    elif split == b'test':
-        all_images = []
-        for root, dirs, files in os.walk(rootpath + 'Test'):
-             for file in files:
-                all_images.append(os.path.join(root, file))
-        for image_name in all_images:
-            yield np.expand_dims(plt.imread(os.path.join(image_name)),-1)
-
 def get_dataset(name,
                 batch_size,
                 mode,
@@ -283,15 +315,15 @@ def get_dataset(name,
       cifar10
       celeb_a
       gtsrb
-      gtsrb_cropped
       compcars
+      lsun
       mnist
       fashion_mnist
-      omniglot_inverted
-      omniglot_shuffled_inverted
-      emnist/letters
-      kmnist
+      emnist_letters
+      sign_lang
+      clevr
       noise
+      constant
     batch_size: Batch Size
     mode: Load in "grayscale" or "color" modes
     normalize: Type of normalization to apply. Supported values are:
