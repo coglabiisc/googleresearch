@@ -47,7 +47,7 @@ Train a background PixelCNN++ on MNIST and compute Log-Likelihood ratio from [Re
 python3 -m train_pixelcnn.py --train_set mnist --mode grayscale --bg 1
 ```
 
-Compute Input Complexity OOD score from [Serra et al., 2019](https://arxiv.org/pdf/1909.11480) using PNG compression for LSUN/ID:
+Compute Input Complexity OOD score from [Serra et al., 2020](https://arxiv.org/pdf/1909.11480) using PNG compression for LSUN/ID:
 
 ```
 python3 -m probs_ic.py --train_set lsun --mode color --compression png
