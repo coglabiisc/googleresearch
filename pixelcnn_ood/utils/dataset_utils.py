@@ -64,7 +64,7 @@ def compcars_generator(split=b'train'):
     An image
   """
 
-  rootpath = '../data/compcars/sv_data'
+  rootpath = './datasets/compcars/sv_data/'
   random.seed(42)
   # random.seed(43)  # split 2
 
@@ -99,7 +99,7 @@ def clevr_generator(split=b'train'):
     An image
   """
     
-  rootpath = '../data/clevr/CLEVR_v1.0/'
+  rootpath = './datasets/clevr/CLEVR_v1.0/'
   random.seed(42)
   
   if split in [b'train', b'val']:
@@ -130,7 +130,7 @@ def gtsrb_generator(split=b'train', cropped=False):
     An image
   """
 
-  rootpath = '../data/gtsrb/GTSRB'
+  rootpath = './datasets/gtsrb/GTSRB'
   random.seed(42)
   # random.seed(43)  # split 2
   if split in [b'train', b'val']:
@@ -188,7 +188,7 @@ def celeba_generator(split=b'train'):
     An image
   """
 
-  rootpath = '../data/celeb_a/images/'
+  rootpath = './datasets/celeb_a/images/'
   random.seed(42)
   all_images = [f for f in os.listdir(rootpath)]
   
@@ -221,7 +221,7 @@ def sign_lang_generator(split=b'val'):
     An image
   """
     
-  rootpath = '../data/sign_lang/Hand_sign_mnist/'
+  rootpath = './datasets/sign_lang/Hand_sign_mnist/'
   random.seed(42)
   
   if split in [b'train', b'val']:
