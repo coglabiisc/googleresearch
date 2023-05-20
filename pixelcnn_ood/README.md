@@ -1,4 +1,4 @@
-### Shaken, and Stirred: Long-Range Dependencies Enable Robust Outlier Detection with PixelCNN++
+## Shaken, and Stirred: Long-Range Dependencies Enable Robust Outlier Detection with PixelCNN++
 
 This repository contains the code for the paper:
 
@@ -25,13 +25,13 @@ To train a PixelCNN++ on MNIST dataset and perform inference on other grayscale 
 python3 -m train_pixelcnn.py --train_set mnist --mode grayscale
 ```
 
-To compute "Stirred" LL for FashionMNIST/ID and other grayscale OOD datasets, run
+To compute "Stirred" LL using PixelCNN++ trained on FashionMNIST, run
 
 ```
 python3 -m stirring_ll.py --train_set fashion_mnist --mode grayscale
 ```
 
-To compute "Shaken" LL for CelebA/ID and other natural image OOD datasets, run
+To compute "Shaken" LL using PixelCNN++ trained on CelebA, run
 
 ```
 python3 -m shaking_ll.py --train_set celeb_a --mode color
