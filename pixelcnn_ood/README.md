@@ -11,10 +11,11 @@ Barath Mohan Umapathi, Kushal Chauhan, Pradeep Shenoy, Devarajan Sridharan <br>
 2. Activate it `conda activate pixelcnn_ood`.
 3. Install the requirements `pip install -r pixelcnn_ood/requirements.txt`.
 4. SignLang, CompCars, GTSRB, CLEVR, and CelebA datasets have to be downloaded manually.
-	- Download the SignLang dataset from [Kaggle](https://www.kaggle.com/ash2703/handsignimages) (requires Kaggle account) and extract `Hand_sign_mnist.zip` into `pixelcnn_ood/datasets/sign_lang/`. <br>
-	- Download the CompCars dataset from its [source](http://mmlab.ie.cuhk.edu.hk/datasets/comp_cars/) and extract `sv_data.zip` into `pixelcnn_ood/datasets/compcars/`. <br>
-	- For GTSRB, download `GTSRB_Final_Training_Images.zip` and `GTSRB_Final_Test_Images.zip` from its [source](https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/published-archive.html) and extract the contents into `pixelcnn_ood/datasets/GTSRB`. <br>
-	- Download CLEVR dataset from its [source](https://cs.stanford.edu/people/jcjohns/clevr/) and extract `CLEVR_v1.0.zip` into `pixelcnn_ood/datasets/clevr`. <br>
+	- Download the SignLang dataset from [Kaggle](https://www.kaggle.com/ash2703/handsignimages) (requires Kaggle account) and extract `Hand_sign_mnist.zip` into `pixelcnn_ood/datasets/sign_lang/`.
+	&nbsp;
+	- Download the CompCars dataset from its [source](http://mmlab.ie.cuhk.edu.hk/datasets/comp_cars/) and extract `sv_data.zip` into `pixelcnn_ood/datasets/compcars/`.
+	- For GTSRB, download `GTSRB_Final_Training_Images.zip` and `GTSRB_Final_Test_Images.zip` from its [source](https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/published-archive.html) and extract the contents into `pixelcnn_ood/datasets/GTSRB`.
+	- Download CLEVR dataset from its [source](https://cs.stanford.edu/people/jcjohns/clevr/) and extract `CLEVR_v1.0.zip` into `pixelcnn_ood/datasets/clevr`.
 	- Download CelebA dataset from its [source](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) and extract `img_celeba.7z` into `pixelcnn_ood/datasets/celeb_a`.
 
 #### Usage
