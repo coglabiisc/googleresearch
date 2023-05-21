@@ -4,7 +4,7 @@ This repository contains the code for the paper:
 
 **Shaken, and Stirred: Long-Range Dependencies Enable Robust Outlier Detection with PixelCNN++** <br>
 Barath Mohan Umapathi, Kushal Chauhan, Pradeep Shenoy, Devarajan Sridharan <br>
-*THE 32nd INTERNATIONAL JOINT CONFERENCE ON ARTIFICIAL INTELLIGENCE (IJCAI 2023)* <br>
+*The 32nd International Joint Conference on Artificial Intelligence (IJCAI 2023)* <br>
 
 ### Preparation
 
@@ -58,10 +58,11 @@ python3 -m probs_ic.py --train_set lsun --mode color --compression png
 If you find our methods useful, please cite:
 
 ```
-@article{umapathi2022,
+@inproceedings{umapathi2022,
   title={Shaken, and Stirred: Long-Range Dependencies Enable Robust Outlier Detection with PixelCNN++},
   author={Umapathi, Barath Mohan and Chauhan, Kushal and Shenoy, Pradeep and Sridharan, Devarajan},
-  journal={arXiv preprint arXiv:2208.13579},
-  year={2022}
+  booktitle={Proceedings of the Thirty-Second International Joint Conference on Artificial Intelligence},
+  year={2023},
+  organization={IJCAI}
 }
 ```
