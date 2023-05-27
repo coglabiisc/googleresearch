@@ -9,7 +9,7 @@ Barath Mohan Umapathi, Kushal Chauhan, Pradeep Shenoy, Devarajan Sridharan <br>
 ### Preparation
 
 #### Environment Setup
-1. Creare a new conda environment `conda create -n pixelcnn_ood python=3.7.10`.
+1. Creare a new conda environment `conda create -n pixelcnn_ood python=3.9.12`.
 2. Activate it `conda activate pixelcnn_ood`.
 3. Install the requirements `python3 -m pip install -r pixelcnn_ood/requirements.txt`.
 
